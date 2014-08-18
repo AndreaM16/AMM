@@ -20,8 +20,9 @@ if (isset($_POST['username']) and isset($_POST['pass']))
         die("Database Selection Failed\n" . mysql_error());
     }
     
-    $query = "SELECT * FROM `users` WHERE username='$username' and password='$password'";
+    $query = "SELECT * FROM users WHERE username='$username' and password='$password'";
     $result = mysql_query($query) or die(mysql_error());
+    echo("ok result");
     $count = mysql_num_rows($result);
     mysqli_close($connection);
     
