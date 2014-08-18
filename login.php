@@ -31,6 +31,7 @@ if (isset($_POST['username']) and isset($_POST['pass']))
         session_start();
         $_SESSION['id'] = $data[0];
         session_write_close();
+        echo("eureka");
         header("Location: homepage.php"); 
     }
     else
