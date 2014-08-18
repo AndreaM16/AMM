@@ -8,76 +8,7 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <title>Gestionale AlphaData | Login</title>
-        <style>
-            .round-button {
-                display:block;
-                width:150px;
-                height:50px;
-                line-height:50px;
-                border: 2px solid #f5f5f5;
-                color:#f5f5f5;
-                text-align:center;
-                text-decoration:none;
-                background: #464646;
-                box-shadow: 0 0 3px gray;
-                font-size:20px;
-                font-weight:bold;
-                margin-top:15px;
-            }
-            .input-label {
-                color:black; 
-                font-size: 18px; 
-                font-family: 'Segoe WP Semibold', Verdana;
-            }
-            .input-boxes {
-                border:1px; 
-                border-color: black; 
-                border-style: solid; 
-                padding: 5px; 
-                font-family: 'Segoe UI'; 
-                font-size: 16px;
-            }
-            .footer {
-                vertical-align:bottom; 
-                background-color: #007FFF; 
-                width:100%; 
-                height:50px;
-                margin-top:-100px;
-            }
-            #footerText {
-                color:white; 
-                font-size: 15px; 
-                font-family: 'Segoe WP Semibold', Verdana; 
-                text-align: center;
-            }
-            #formBox {
-                width: 300px; 
-                height: 300px; 
-                margin-top: 100px; 
-                margin-left:auto; 
-                margin-right:auto; 
-                background-color: lightgrey; 
-                padding: 20px;
-            }
-            #formHeader {
-                color:black; 
-                font-size: 25px; 
-                font-family: 'Segoe WP Semibold', Verdana;
-                margin-top:0px;
-            }
-            h1 {
-               text-align: center; 
-               color: white; 
-               font-size:50px; 
-               font-family:'Segoe WP Semibold', Verdana;
-               margin-top:0px; 
-            }
-            #header {
-                width:100%; 
-                height: 100px; 
-                background-color:#007FFF;
-            }
-        </style>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
     <body>
         <div id="header">
