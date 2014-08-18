@@ -10,9 +10,14 @@ if (isset($_POST['username']) and isset($_POST['pass']))
     $password = $_POST['pass'];
     
     // Create connection
-    $connection=mysqli_connect($host,$usernameDB,$passwordDB,$db_name,3306);
+    $connection=mysqli_connect($host,$usernameDB,$passwordDB);
     if (!$connection){
-        die("Database Connection Failed" . mysql_error());
+        die("Database Connection Failed\n" . mysql_error());
+    }
+    
+    $selecting = mysql_select_db($db_name);
+    if (!$selecting){
+        die("Database Selection Failed\n" . mysql_error());
     }
     
     $query = "SELECT * FROM `users` WHERE username='$username' and password='$password'";
