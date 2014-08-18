@@ -19,12 +19,13 @@ if (isset($_POST['username']) and isset($_POST['pass']))
     if (!$selecting){
         die("Database Selection Failed\n" . mysql_error());
     }
-    
+    echo("eureka");
     $query = "SELECT * FROM users WHERE username='$username' and password='$password'";
     $result = mysqli_query($connection,$query) or die(mysql_error());
     $count = mysqli_num_rows($result);
+    echo("eureka");
     mysqli_close($connection);
-    
+    echo("eureka");
     if ($count == 1)
     {
         $data = mysqli_fetch_row($result);
