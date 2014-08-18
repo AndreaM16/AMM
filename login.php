@@ -1,6 +1,6 @@
 <?php
-$username = "lelliGiancarlo";
-$password = "anatra176";
+$usernameDB = "lelliGiancarlo";
+$passwordDB = "anatra176";
 $host = "localhost";
 $db_name = "amm14_lelliGiancarlo";
 
@@ -15,7 +15,7 @@ if (isset($_POST['username']) and isset($_POST['pass']))
         die("Database Connection Failed" . mysql_error());
     }
     
-    $query = "SELECT * FROM `users` WHERE username='$username' and password='$password'";
+    $query = "SELECT * FROM `users` WHERE username='$usernameDB' and password='$passwordDB'";
     $result = mysql_query($query) or die(mysql_error());
     $count = mysql_num_rows($result);
     mysqli_close($connection);
