@@ -15,7 +15,7 @@ if (isset($_POST['username']) and isset($_POST['pass']))
         die("Database Connection Failed\n" . mysql_error());
     }
     
-    $selecting = mysqli_select_db($db_name);
+    $selecting = mysqli_select_db($connection,$db_name);
     if (!$selecting){
         die("Database Selection Failed\n" . mysql_error());
     }
