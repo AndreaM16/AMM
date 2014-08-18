@@ -12,6 +12,20 @@ if(!isset($_SESSION['id']))
         <meta charset="UTF-8">
         <title>Gestionale AlphaData | Home</title>
         <link rel="stylesheet" type="text/css" href="css/style.css">
+        <style>
+            #leftSidebar {
+                float:left;
+                width: 25%;
+                height:800px;
+                background-color: blue;
+            }
+            #content {
+                float:left;
+                width:75%;
+                height: 800px;
+                background-color: orange;
+            }
+        </style>
     </head>
     <body>
         <div id="header">
