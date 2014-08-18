@@ -21,8 +21,7 @@ if (isset($_POST['username']) and isset($_POST['pass']))
     }
     
     $query = "SELECT * FROM users WHERE username='$username' and password='$password'";
-    $result = mysql_query($query) or die(mysql_error());
-    echo("ok result");
+    $result = mysqli_query($connection,$query) or die(mysql_error());
     $count = mysql_num_rows($result);
     mysqli_close($connection);
     
