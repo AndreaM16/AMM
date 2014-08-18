@@ -1,7 +1,7 @@
 <?php
 $username = "lelliGiancarlo";
 $password = "anatra176";
-$host = "192.167.155.72";
+$host = "localhost";
 $db_name = "amm14_lelliGiancarlo";
 
 if (isset($_POST['username']) and isset($_POST['pass']))
