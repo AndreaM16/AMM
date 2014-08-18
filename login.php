@@ -10,12 +10,12 @@ if (isset($_POST['username']) and isset($_POST['pass']))
     $password = $_POST['pass'];
     
     // Create connection
-    $connection=mysqli_connect($host,$username,$password,$db_name,3306);
+    $connection=mysqli_connect($host,$usernameDB,$passwordDB,$db_name,3306);
     if (!$connection){
         die("Database Connection Failed" . mysql_error());
     }
     
-    $query = "SELECT * FROM `users` WHERE username='$usernameDB' and password='$passwordDB'";
+    $query = "SELECT * FROM `users` WHERE username='$username' and password='$password'";
     $result = mysql_query($query) or die(mysql_error());
     $count = mysql_num_rows($result);
     mysqli_close($connection);
