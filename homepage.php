@@ -6,7 +6,7 @@ if(isset($_SESSION['id']))
 }
 else
 {
-    var_dump($_SESSION);
-    echo("Not Authorized\n");
+    $ip = $_SERVER['REMOTE_ADDR'];
+    echo("Hello $ip\n You are trying to access a restricted area, please go <a href='index.php'>back </a>and login");
 }
 
