@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['id'])) {
-    echo("Hello!\n You are trying to access a restricted area, please go <a href='index.php'>back </a>and login.");
+    header("Location: ../error.php");
 }
 ?>
 <!DOCTYPE html>
@@ -64,7 +64,7 @@ if (!isset($_SESSION['id'])) {
                     <?php 
                         if($_SESSION['is_admin'] == 1) {
                         echo("<p id='formHeader' style='font-size:18px'>Amministrazione:</p>");
-                        echo("<ul><li><p id='formHeader' style='margin-top:0px;'><a href='news.php'>[AGGIUNGI NEWS]</a></p></li><li><p id='formHeader' style='margin-top:0px;'><a href='users.php'>[AGGIUNGI UTENTE]</a></p></li>");
+                        echo("<ul><li><p id='formHeader' style='margin-top:0px;'><a href='adminpanel/news.php'>[AGGIUNGI NEWS]</a></p></li><li><p id='formHeader' style='margin-top:0px;'><a href='adminpanel/users.php'>[AGGIUNGI UTENTE]</a></p></li>");
                     }
                     ?>
                 </div>
@@ -101,7 +101,7 @@ if (!isset($_SESSION['id'])) {
                                 <td width="100px">Status</td>
                                 <?php 
                                     if($_SESSION['is_admin'] == 1) {
-                                    echo("<td width='50px'>Gestione</td>");
+                                    echo("<td width='150px'>Gestione</td>");
                                     }
                                 ?>
                             </tr>

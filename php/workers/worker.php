@@ -35,9 +35,9 @@ if(isset($_GET['type']))
         case 3:
             // Segna pagato
             $order_id = $_GET['id'];
-            $output = PerformQuery("");
+            $output = PerformQuery("UPDATE `orders` SET status = 1 WHERE order_id=$order_id");
             if ($output) {
-                header('Location: homepage.php');
+                header('Location: ../homepage.php');
             } else {
                 header("HTTP/1.0 400 Bad Request");
             }
@@ -45,9 +45,9 @@ if(isset($_GET['type']))
         case 4:
             // resetta pwd
             $user_id = $_GET['id'];
-            $output = PerformQuery("");
+            $output = PerformQuery("UPDATE `users` SET pwd = 'temp' WHERE id=$user_id");
             if ($output) {
-                header('Location: homepage.php');
+                header('Location: ../homepage.php');
             } else {
                 header("HTTP/1.0 400 Bad Request");
             }
@@ -55,9 +55,10 @@ if(isset($_GET['type']))
         case 5:
             // fai admin
             $user_id = $_GET['id'];
-            $output = PerformQuery("");
+            $output = PerformQuery("UPDATE `users` SET is_admin = 1 WHERE id=$user_id");
+            $_SESSION['is_admin'] = 1;
             if ($output) {
-                header('Location: homepage.php');
+                header('Location: ../homepage.php');
             } else {
                 header("HTTP/1.0 400 Bad Request");
             }
@@ -65,9 +66,10 @@ if(isset($_GET['type']))
         case 6:
             // declass
             $user_id = $_GET['id'];
-            $output = PerformQuery("");
+            $output = PerformQuery("UPDATE `users` SET is_admin = 0 WHERE id=$user_id");
+            $_SESSION['is_admin'] = 0;
             if ($output) {
-                header('Location: homepage.php');
+                header('Location: ../homepage.php');
             } else {
                 header("HTTP/1.0 400 Bad Request");
             }
