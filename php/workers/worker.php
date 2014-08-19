@@ -29,16 +29,28 @@ if(isset($_GET['type']))
             echo($result);
             break;
         case 3:
-            // segna pagato
+            // Segna pagato
+            $order_id = $_GET['id'];
+            PerformQuery("");
+            header('Location: homepage.php');
             break;
         case 4:
             // resetta pwd
+            $user_id = $_GET['id'];
+            PerformQuery("");
+            header('Location: homepage.php');
             break;
         case 5:
             // fai admin
+            $user_id = $_GET['id'];
+            PerformQuery("");
+            header('Location: homepage.php');
             break;
         case 6:
             // declass
+            $user_id = $_GET['id'];
+            PerformQuery("");
+            header('Location: homepage.php');
             break;
     }
 }
@@ -73,4 +85,26 @@ function LoadItems($stringQuery) {
     
     $json = json_encode($output);
     return $json;
+}
+
+function PerformQuery($queryString) {
+    global $host;
+    global $usernameDB;
+    global $passwordDB;
+    global $db_name;
+    
+    $connection=mysqli_connect($host,$usernameDB,$passwordDB);
+    if (!$connection){
+        die("Database Connection Failed\n" . mysql_error());
+    }
+    
+    $selecting = mysqli_select_db($connection,$db_name);
+    if (!$selecting){
+        die("Database Selection Failed\n" . mysql_error());
+    }
+
+    $result = mysqli_query($connection,$queryString) or die(mysql_error());
+    mysqli_close($connection);
+    
+    return $result;
 }
