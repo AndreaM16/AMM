@@ -10,7 +10,7 @@ if(isset($_GET['type']))
     $action = $_POST['type'];
 }
 else {
-    header("HTTP/1.0 400 Bad Request");
+    header("Location: ../error.php");
 }
 
 switch ($action)
@@ -26,7 +26,7 @@ switch ($action)
         header('Content-Type: application/json');
         if($_SESSION['is_admin'] == 1) {
             // Carica ordini admin
-            $result = LoadItems("SELECT * FROM orders AS o, users AS u WHERE o.cliente_id=u.id");
+            $result = LoadItems("SELECT * FROM orders AS o, users AS u WHERE o.cliente_id=u.id ORDER BY u.name");
         }
         else {
             // Carica ordini utente
