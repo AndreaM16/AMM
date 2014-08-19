@@ -4,6 +4,7 @@ if (!isset($_SESSION['id'])) {
     echo("Hello!\n You are trying to access a restricted area, please go <a href='index.php'>back </a>and login.");
 }
 ?>
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -12,8 +13,8 @@ if (!isset($_SESSION['id'])) {
         <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.js"></script>
         <script type="text/javascript">
             $.get("workers/worker.php?type=0", function(data) {
-                alert(data.toString());
-            });
+                    console.log(data);
+            }, "json");
         </script>
     </head>
     <body>
@@ -63,7 +64,7 @@ if (!isset($_SESSION['id'])) {
             <div id="content">
                 <div id="news" style="width:100%;height: 25%;">
                     <p id="formHeader" style="margin-left: 25px; margin-top:15px;">News dal mondo AlphaData</p>
-                    <table style="margin-left: 25px; margin-top:-15px;">
+                    <table id="newsTableBody" style="margin-left: 25px; margin-top:-15px;">
                         <thead>
                             <tr>
                                 <td>Data</td>
@@ -71,7 +72,7 @@ if (!isset($_SESSION['id'])) {
                                 <td>Gestione</td>
                             </tr>
                         </thead>
-                        <tbody id="newsTableBody"></tbody>
+                        <tbody></tbody>
                     </table>
                 </div>
                 <hr>

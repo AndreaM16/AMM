@@ -35,10 +35,10 @@ function LoadNews() {
         die("Database Selection Failed\n" . mysql_error());
     }
 
-    $query = "SELECT * FROM news";
+    $query = "SELECT * FROM news LIMIT 5";
     $result = mysqli_query($connection,$query) or die(mysql_error());
     mysqli_close($connection);
-    $newsArray = mysqli_fetch_assoc($result);
+    $newsArray = mysqli_fetch_object($result);
     $json = json_encode($newsArray);
     return $json;
 }
