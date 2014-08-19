@@ -12,8 +12,8 @@ if (!isset($_SESSION['id'])) {
         <script type="text/javascript" src="•http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.js"/>
         <script type="text/javascript">
             $(document).ready(function() {
-                $.get( "php/workers/worker.php", { type: "0"} ).done(function(data) {
-                    document.write(data);
+                $.get( "workers/worker.php", { type: "0"} ).done(function(data) {
+                    alert(data);
                 });
             });
         </script>

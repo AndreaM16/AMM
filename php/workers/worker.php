@@ -1,5 +1,5 @@
 <?php
-include_once '/php/workers/config.php';
+include 'config.php';
 
 if(isset($_GET['type']))
 {
@@ -18,8 +18,12 @@ else
     header("HTTP/1.0 400 Bad Request");
 }
 
-function LoadNews()
-{
+function LoadNews() {
+    global $host;
+    global $usernameDB;
+    global $passwordDB;
+    global $db_name;
+    
     // Create connection
     $connection=mysqli_connect($host,$usernameDB,$passwordDB);
     if (!$connection){
