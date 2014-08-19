@@ -37,46 +37,82 @@ if (!isset($_SESSION['id'])) {
                         linkCell.appendChild(link);
                     })
             }, "json");
-            $.get("workers/worker.php?type=1",function(data){
-                    console.log(data);
-                    $.each(data, function(key,value){
-                        var tableRef = document.getElementById('orderTableBody').getElementsByTagName('tbody')[0];
-                        
-                        // Insert a row in the table at row index 0
-                        var newRow   = tableRef.insertRow(tableRef.rows.length);
-                        
-                        // Insert a cell in the row at index 0
-                        var idCell  = newRow.insertCell(0);
-                        var dateCell  = newRow.insertCell(1);
-                        var clienteCell = newRow.insertCell(2);
-                        var articoloCell = newRow.insertCell(3);
-                        var totaleCell = newRow.insertCell(4);
-                        var statusCell = newRow.insertCell(5);
-                        var gestioneCell = newRow.insertCell(6);
+            <?php
+                if($_SESSION['is_admin'] == 1) {
+                    echo '$.get("workers/worker.php?type=1",function(data){
+                            console.log(data);
+                            $.each(data, function(key,value){
+                                var tableRef = document.getElementById(\'orderTableBody\').getElementsByTagName(\'tbody\')[0];
 
-                        // Append a text node to the cell
-                        var id  = document.createTextNode(value.order_id);
-                        var date = document.createTextNode(value.order_date);
-                        var cliente = document.createTextNode("ID:"+value.id +" "+value.name +" "+value.surname);
-                        var articolo = document.createTextNode(value.articolo);
-                        var totale = document.createTextNode(value.totale+"€");
-                        var status = document.createTextNode(value.status == 1 ? "Pagato" : "Non Pagato");
-                        
-                        var gestione = document.createElement("a");
-                        gestione.href="workers/worker.php?type=3&id="+value.order_id;
-                        gestione.appendChild(document.createTextNode("Segna come pagato"));
-                        
-                        idCell.appendChild(id);
-                        dateCell.appendChild(date);
-                        clienteCell.appendChild(cliente);
-                        articoloCell.appendChild(articolo);
-                        totaleCell.appendChild(totale);
-                        statusCell.appendChild(status);
-                        if(value.status == 0){
-                            gestioneCell.appendChild(gestione);
-                        }
-                    })
-            },"json");
+                                // Insert a row in the table at row index 0
+                                var newRow   = tableRef.insertRow(tableRef.rows.length);
+
+                                // Insert a cell in the row at index 0
+                                var idCell  = newRow.insertCell(0);
+                                var dateCell  = newRow.insertCell(1);
+                                var clienteCell = newRow.insertCell(2);
+                                var articoloCell = newRow.insertCell(3);
+                                var totaleCell = newRow.insertCell(4);
+                                var statusCell = newRow.insertCell(5);
+                                var gestioneCell = newRow.insertCell(6);
+
+                                // Append a text node to the cell
+                                var id  = document.createTextNode(value.order_id);
+                                var date = document.createTextNode(value.order_date);
+                                var cliente = document.createTextNode("ID:"+value.id +" "+value.name +" "+value.surname);
+                                var articolo = document.createTextNode(value.articolo);
+                                var totale = document.createTextNode(value.totale+"€");
+                                var status = document.createTextNode(value.status == 1 ? "Pagato" : "Non Pagato");
+
+                                var gestione = document.createElement("a");
+                                gestione.href="workers/worker.php?type=3&id="+value.order_id;
+                                gestione.appendChild(document.createTextNode("Segna come pagato"));
+
+                                idCell.appendChild(id);
+                                dateCell.appendChild(date);
+                                clienteCell.appendChild(cliente);
+                                articoloCell.appendChild(articolo);
+                                totaleCell.appendChild(totale);
+                                statusCell.appendChild(status);
+                                if(value.status == 0){
+                                    gestioneCell.appendChild(gestione);
+                                }
+                            })
+                    },"json");';
+                }
+                else
+                {
+                    echo '$.get("workers/worker.php?type=1",function(data){
+                            console.log(data);
+                            $.each(data, function(key,value){
+                                var tableRef = document.getElementById(\'orderTableBody\').getElementsByTagName(\'tbody\')[0];
+
+                                // Insert a row in the table at row index 0
+                                var newRow   = tableRef.insertRow(tableRef.rows.length);
+
+                                // Insert a cell in the row at index 0
+                                var idCell  = newRow.insertCell(0);
+                                var dateCell  = newRow.insertCell(1);
+                                var articoloCell = newRow.insertCell(2);
+                                var totaleCell = newRow.insertCell(3);
+                                var statusCell = newRow.insertCell(4);
+
+                                // Append a text node to the cell
+                                var id  = document.createTextNode(value.order_id);
+                                var date = document.createTextNode(value.order_date);
+                                var articolo = document.createTextNode(value.articolo);
+                                var totale = document.createTextNode(value.totale+"€");
+                                var status = document.createTextNode(value.status == 1 ? "Pagato" : "Non Pagato");
+
+                                idCell.appendChild(id);
+                                dateCell.appendChild(date);
+                                articoloCell.appendChild(articolo);
+                                totaleCell.appendChild(totale);
+                                statusCell.appendChild(status);
+                            })
+                    },"json");';
+                }
+            ?>
         </script>
     </head>
     <body>
@@ -129,8 +165,8 @@ if (!isset($_SESSION['id'])) {
                     <table id="newsTableBody" style="margin-left: 25px; margin-top:-15px;">
                         <thead>
                             <tr>
-                                <td width="15%">Data</td>
-                                <td width="25%">Titolo</td>
+                                <td width="140px">Data</td>
+                                <td width="250px">Titolo</td>
                                 <td>Link</td>
                             </tr>
                         </thead>
@@ -145,7 +181,11 @@ if (!isset($_SESSION['id'])) {
                             <tr>
                                 <td width="50px">#</td>
                                 <td width="100px">Data ordine</td>
-                                <td width="200px">Cliente</td>
+                                <?php 
+                                    if($_SESSION['is_admin'] == 1) {
+                                    echo("<td width='50px'>Cliente</td>");
+                                    }
+                                ?>
                                 <td width="100px">Articolo</td>
                                 <td width="100px">Totale</td>
                                 <td width="100px">Status</td>
