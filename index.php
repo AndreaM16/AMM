@@ -1,45 +1,54 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<?php
-session_start();
-if (isset($_SESSION['id'])) {
-    header("Location: homepage.php");
-}
-?>
 <html>
     <head>
-        <meta charset="UTF-8">
-        <title>Gestionale AlphaData | Login</title>
-        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Progetto Amministrazione di Sistema</title>
     </head>
     <body>
-        <div id="header">
-            <h1>Gestionale AlphaData Inc.</h1>
-        </div>
-        <div id="body" style="height: 600px; width:100%;">
-            <div id="formBox">
-                <p id="formHeader">Accesso utenti:</p>
-                <form action="login.php" method="POST" style="margin-right:auto; margin-left:auto;">
-                    <label class="input-label" for="username">Username :</label>
-                    <input name="username" type="text" class="input-boxes" required /><br>
-                    <label class="input-label" for="pass">Password :</label>
-                    <input name="pass" type="password" class="input-boxes" required /><br>
-                    <input class="round-button" type="submit" value="Login"/>
-                </form>
-            </div>
-        </div>
-        <div class="footer">
-            <div style="width:25%; height: 100px; float:left">
-                <p id="footerText">Anno accademico 2013-2014</p>
-            </div>
-            <div style="width:50%; height: 100px; float:left"></div>
-            <div style="width:25%; height: 100px; float:left">
-                <p id="footeGiancarlo Lelli - Matricola: 47792</p>
-            </div>
-        </div>
+        <h1>Accesso al progetto</h1>
+        <p>
+            <a href="php/">Login</a>
+        </p>
+        <h3>Descrizione</h3>
+        <p>
+            L'applicazione gestisce le funzionalità di un gestionale. Gli utenti sono divisi in amministratori e dipendenti.</br>
+            I dipendenti possono:
+            <ul>
+                <li>Visualizzare le news dell'azienda</li>
+                <li>Ordinare nuovi prodotti e possono annullare ordini se non pagati ma non aggiungerne di nuovi.</li>
+            </ul>
+            Gli amministratori possono:
+            <ul>
+                <li>Visualizzare le news dell'azienda, aggiungerne di nuove</li>
+                <li>Visualizzare tutti gli ordini e marcare il loro pagamento. Non possono creare ordini ne cancellarli</li>
+                <li>Aggiungere utenti alla piattaforma e eseguire operazioni di amministrazione base</li>
+            </ul>
+        </p>
+        <p>
+            <h3>Requisiti soddisfatti</h3>
+            <ol>
+                <li>Utilizzo di HTML e CSS</li>
+                <li>Utilizzo di PHP e MySQL</li>
+                <li>Utilizzo di Javascript e chiamate asincrono</li>
+                <li>Due ruoli (amministratore e dipendente)</li>
+            </ol>
+        </p>
+        <p>
+            <h3>Utenti</h3>
+            <ul>
+                <li>Amministratore
+                    <ul>
+                        <li>username: amministratore</li>
+                        <li>passowrd: amministratore</li>
+                    </ul>
+                </li>
+                <li>Dipendente
+                    <ul>
+                        <li>username: dipendente</li>
+                        <li>passowrd: dipendente</li>
+                    </ul>
+                </li>
+            </ul>
+        </p>
     </body>
 </html>

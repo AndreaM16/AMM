@@ -102,14 +102,6 @@ if (!isset($_SESSION['id'])) {
                             </tr>
                         </tbody>
                     </table>
-                    <p id="formHeader" style="margin-left: 25px; margin-top:15px;font-size:18px">Aggiungi news:</p>
-                    <form action="worker.php" method="POST" style="margin-left: 25px;">
-                        <label for="username">Titolo :</label>
-                        <input name="username" type="text" required />
-                        <label for="pass">Link :</label>
-                        <input name="pass" type="url" required />
-                        <input type="submit" value="Aggiungi"/>
-                    </form>
                 </div>
                 <hr>
                 <div id="orders" style="width:100%;">
@@ -220,16 +212,6 @@ if (!isset($_SESSION['id'])) {
                             </tr>
                         </tbody>
                     </table>
-                    <p id="formHeader" style="margin-left: 25px; margin-top:15px;font-size:18px">Aggiungi utente:</p>
-                    <form action="worker.php" method="POST" style="margin-left: 25px;">
-                        <label for="username">Titolo :</label>
-                        <input name="username" type="text" required /><br>
-                        <label for="pass">Ruolo :</label>
-                        <input name="pass" type="url" required /><br>
-                        <label for="admin">Platf. Admin: </label>
-                        <input name="admin" type="checkbox" checked="false" /><br>
-                        <input type="submit" value="Aggiungi"/>
-                    </form>
                 </div>
             </div>
         </div>
