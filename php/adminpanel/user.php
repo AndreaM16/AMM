@@ -50,7 +50,7 @@ if (!isset($_SESSION['id'])) {
                     <?php 
                         if($_SESSION['is_admin'] == 1) {
                         echo("<p id='formHeader' style='font-size:18px'>Menù:</p>");
-                        echo("<ul><li><p id='formHeader' style='margin-top:0px;'><a href='news.php'>[AGGIUNGI NEWS]</a></p><li><p id='formHeader' style='margin-top:0px;'><a href='../homepage.php'>[VAI ALLA HOME]</a></p></li></li>");
+                        echo("<ul><li><p id='formHeader' style='margin-top:0px;'><a href='../homepage.php'>[VAI ALLA HOME]</a></p></li><li><p id='formHeader' style='margin-top:0px;'><a href='news.php'>[AGGIUNGI NEWS]</a></p></li>");
                     }
                     ?>
                 </div>
