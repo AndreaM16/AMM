@@ -76,7 +76,7 @@ if (!isset($_SESSION['id'])) {
                         <input name="retype" type="password" class="input-boxes" title="Le password devono combaciare" required onchange="form.password.pattern = this.value;"/><br><br>
                         
                         <label class="input-label" for="role">Ruolo&nbsp;:</label>
-                        <select name="role">
+                        <select class="input-boxes" name="role">
                             <option value="0">Amministratore Delegato</option>
                             <option value="1">Dipendente</option>
                             <option value="2">Cliente</option>
