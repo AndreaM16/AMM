@@ -8,6 +8,7 @@ if(isset($_GET['type']))
     switch ($action)
     {
         case 0:
+            // Carica news
             header('Content-Type: application/json');
             $result = LoadItems("SELECT date_posted,title,link FROM news ORDER BY date_posted DESC LIMIT 5");
             echo($result);
@@ -15,15 +16,18 @@ if(isset($_GET['type']))
         case 1:
             header('Content-Type: application/json');
             if($_SESSION['is_admin'] == 1) {
+                // Carica ordini admin
                 $result = LoadItems("SELECT * FROM orders AS o, users AS u WHERE o.cliente_id=u.id");
             }
             else {
+                // Carica ordini utente
                 $id = $_SESSION['id'];
                 $result = LoadItems("SELECT * FROM orders WHERE cliente_id=$id");
             }
             echo($result);
             break;
         case 2:
+            // Carica utenti
             header('Content-Type: application/json');
             $result = LoadItems("SELECT * FROM users");
             echo($result);
@@ -32,37 +36,41 @@ if(isset($_GET['type']))
             // Segna pagato
             $order_id = $_GET['id'];
             $output = PerformQuery("");
-            if($output)
+            if ($output) {
                 header('Location: homepage.php');
-            else
+            } else {
                 header("HTTP/1.0 400 Bad Request");
+            }
             break;
         case 4:
             // resetta pwd
             $user_id = $_GET['id'];
             $output = PerformQuery("");
-            if($output)
+            if ($output) {
                 header('Location: homepage.php');
-            else
+            } else {
                 header("HTTP/1.0 400 Bad Request");
+            }
             break;
         case 5:
             // fai admin
             $user_id = $_GET['id'];
             $output = PerformQuery("");
-            if($output)
+            if ($output) {
                 header('Location: homepage.php');
-            else
+            } else {
                 header("HTTP/1.0 400 Bad Request");
+            }
             break;
         case 6:
             // declass
             $user_id = $_GET['id'];
             $output = PerformQuery("");
-            if($output)
+            if ($output) {
                 header('Location: homepage.php');
-            else
+            } else {
                 header("HTTP/1.0 400 Bad Request");
+            }
             break;
         case 7:
             // add news
