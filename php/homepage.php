@@ -13,8 +13,70 @@ if (!isset($_SESSION['id'])) {
         <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.js"></script>
         <script type="text/javascript">
             $.get("workers/worker.php?type=0", function(data) {
-                    console.log(data);
+                    $.each(data, function(key,value){
+                        var tableRef = document.getElementById('newsTableBody').getElementsByTagName('tbody')[0];
+                        
+                        // Insert a row in the table at row index 0
+                        var newRow   = tableRef.insertRow(tableRef.rows.length);
+                        
+                        // Insert a cell in the row at index 0
+                        var dateCell  = newRow.insertCell(0);
+                        var titleCell = newRow.insertCell(1);
+                        var linkCell = newRow.insertCell(2);
+
+                        // Append a text node to the cell
+                        var date  = document.createTextNode(value.date_posted);
+                        var title = document.createTextNode(value.title);
+                        
+                        var link = document.createElement("a");
+                        link.href = value.link;
+                        link.appendChild(document.createTextNode(value.link));
+                        
+                        dateCell.appendChild(date);
+                        titleCell.appendChild(title);
+                        linkCell.appendChild(link);
+                    })
             }, "json");
+            $.get("workers/worker.php?type=1",function(data){
+                    console.log(data);
+                    $.each(data, function(key,value){
+                        var tableRef = document.getElementById('orderTableBody').getElementsByTagName('tbody')[0];
+                        
+                        // Insert a row in the table at row index 0
+                        var newRow   = tableRef.insertRow(tableRef.rows.length);
+                        
+                        // Insert a cell in the row at index 0
+                        var idCell  = newRow.insertCell(0);
+                        var dateCell  = newRow.insertCell(1);
+                        var clienteCell = newRow.insertCell(2);
+                        var articoloCell = newRow.insertCell(3);
+                        var totaleCell = newRow.insertCell(4);
+                        var statusCell = newRow.insertCell(5);
+                        var gestioneCell = newRow.insertCell(6);
+
+                        // Append a text node to the cell
+                        var id  = document.createTextNode(value.order_id);
+                        var date = document.createTextNode(value.order_date);
+                        var cliente = document.createTextNode("ID:"+value.id +" "+value.name +" "+value.surname);
+                        var articolo = document.createTextNode(value.articolo);
+                        var totale = document.createTextNode(value.totale+"€");
+                        var status = document.createTextNode(value.status == 1 ? "Pagato" : "Non Pagato");
+                        
+                        var gestione = document.createElement("a");
+                        gestione.href="workers/worker.php?type=3&id="+value.order_id;
+                        gestione.appendChild(document.createTextNode("Segna come pagato"));
+                        
+                        idCell.appendChild(id);
+                        dateCell.appendChild(date);
+                        clienteCell.appendChild(cliente);
+                        articoloCell.appendChild(articolo);
+                        totaleCell.appendChild(totale);
+                        statusCell.appendChild(status);
+                        if(value.status == 0){
+                            gestioneCell.appendChild(gestione);
+                        }
+                    })
+            },"json");
         </script>
     </head>
     <body>
@@ -67,9 +129,9 @@ if (!isset($_SESSION['id'])) {
                     <table id="newsTableBody" style="margin-left: 25px; margin-top:-15px;">
                         <thead>
                             <tr>
-                                <td>Data</td>
-                                <td>Titolo</td>
-                                <td>Gestione</td>
+                                <td width="15%">Data</td>
+                                <td width="25%">Titolo</td>
+                                <td>Link</td>
                             </tr>
                         </thead>
                         <tbody></tbody>
@@ -78,23 +140,29 @@ if (!isset($_SESSION['id'])) {
                 <hr>
                 <div id="orders" style="width:100%;">
                     <p id="formHeader" style="margin-left: 25px; margin-top:15px;">Ordini</p>
-                    <table style="margin-left: 25px; margin-top:-15px;">
+                    <table id="orderTableBody" style="margin-left: 25px; margin-top:-15px;">
                         <thead>
                             <tr>
-                                <td>Numero #</td>
-                                <td>Oggetto</td>
-                                <td>Cliente</td>
-                                <td>Stato</td>
-                                <td>Gestione</td>
+                                <td width="50px">#</td>
+                                <td width="100px">Data ordine</td>
+                                <td width="200px">Cliente</td>
+                                <td width="100px">Articolo</td>
+                                <td width="100px">Totale</td>
+                                <td width="100px">Status</td>
+                                <?php 
+                                    if($_SESSION['is_admin'] == 1) {
+                                    echo("<td width='50px'>Gestione</td>");
+                                    }
+                                ?>
                             </tr>
                         </thead>
-                        <tbody id="orderTableBody"></tbody>
+                        <tbody></tbody>
                     </table>
                 </div>
                 <hr>
                 <div id="users" style="width:100%; height: 25%;">
                     <p id="formHeader" style="margin-left: 25px; margin-top:15px;">Utenti</p>
-                    <table style="margin-left: 25px; margin-top:-15px;">
+                    <table id="userTableBody" style="margin-left: 25px; margin-top:-15px;">
                         <thead>
                             <tr>
                                 <td>ID</td>
@@ -104,7 +172,7 @@ if (!isset($_SESSION['id'])) {
                                 <td>Gestione</td>
                             </tr>
                         </thead>
-                        <tbody id="userTableBody"></tbody>
+                        <tbody></tbody>
                     </table>
                 </div>
             </div>
