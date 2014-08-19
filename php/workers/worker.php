@@ -140,6 +140,9 @@ switch ($action)
             header("HTTP/1.0 400 Bad Request");
         }
         break;
+    case 9:
+        // nuovo ordine
+        break;
 }
 
 function LoadItems($stringQuery) {

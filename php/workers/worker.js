@@ -180,3 +180,7 @@ function LoadUsers()
         })
     },"json");
 }
+
+function LoadArticoli() {
+    
+}
