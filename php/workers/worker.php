@@ -28,6 +28,18 @@ if(isset($_GET['type']))
             $result = LoadItems("SELECT * FROM users");
             echo($result);
             break;
+        case 3:
+            // segna pagato
+            break;
+        case 4:
+            // resetta pwd
+            break;
+        case 5:
+            // fai admin
+            break;
+        case 6:
+            // declass
+            break;
     }
 }
 else
