@@ -38,7 +38,7 @@ function LoadNews() {
     $query = "SELECT * FROM news";
     $result = mysqli_query($connection,$query) or die(mysql_error());
     mysqli_close($connection);
-    $newsArray = mysqli_fetch_array($result);
+    $newsArray = mysqli_fetch_assoc($result);
     $json = json_encode($newsArray);
     return $json;
 }

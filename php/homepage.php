@@ -9,12 +9,10 @@ if (!isset($_SESSION['id'])) {
         <meta charset="UTF-8">
         <title>Gestionale AlphaData | Home</title>
         <link rel="stylesheet" type="text/css" href="css/style.css">
-        <script type="text/javascript" src="•http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.js"/>
+        <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.js"></script>
         <script type="text/javascript">
-            $(document).ready(function() {
-                $.get( "workers/worker.php", { type: "0"} ).done(function(data) {
-                    alert(data);
-                });
+            $.get("workers/worker.php?type=0", function(data) {
+                alert(data.toString());
             });
         </script>
     </head>
