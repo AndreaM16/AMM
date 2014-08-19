@@ -31,26 +31,44 @@ if(isset($_GET['type']))
         case 3:
             // Segna pagato
             $order_id = $_GET['id'];
-            PerformQuery("");
-            header('Location: homepage.php');
+            $output = PerformQuery("");
+            if($output)
+                header('Location: homepage.php');
+            else
+                header("HTTP/1.0 400 Bad Request");
             break;
         case 4:
             // resetta pwd
             $user_id = $_GET['id'];
-            PerformQuery("");
-            header('Location: homepage.php');
+            $output = PerformQuery("");
+            if($output)
+                header('Location: homepage.php');
+            else
+                header("HTTP/1.0 400 Bad Request");
             break;
         case 5:
             // fai admin
             $user_id = $_GET['id'];
-            PerformQuery("");
-            header('Location: homepage.php');
+            $output = PerformQuery("");
+            if($output)
+                header('Location: homepage.php');
+            else
+                header("HTTP/1.0 400 Bad Request");
             break;
         case 6:
             // declass
             $user_id = $_GET['id'];
-            PerformQuery("");
-            header('Location: homepage.php');
+            $output = PerformQuery("");
+            if($output)
+                header('Location: homepage.php');
+            else
+                header("HTTP/1.0 400 Bad Request");
+            break;
+        case 7:
+            // add news
+            break;
+        case 8:
+            // add user
             break;
     }
 }
