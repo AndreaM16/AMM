@@ -158,7 +158,7 @@ function LoadUsers()
 
             var declassaCMD = document.createElement("a");
             declassaCMD.href = "workers/worker.php?type=6&id="+value.id;
-            declassaCMD.appendChild(document.createTextNode("Revoca Admin."));
+            declassaCMD.appendChild(document.createTextNode("Revoca Admin"));
 
             idCell.appendChild(id);
             nameCell.appendChild(name);

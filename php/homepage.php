@@ -62,10 +62,13 @@ if (!isset($_SESSION['id'])) {
                     <br>
                     <br>
                     <?php 
+                        echo("<p id='formHeader' style='font-size:18px'>Menù:</p>");
+                        echo("<ul>");
                         if($_SESSION['is_admin'] == 1) {
-                        echo("<p id='formHeader' style='font-size:18px'>Amministrazione:</p>");
-                        echo("<ul><li><p id='formHeader' style='margin-top:0px;'><a href='adminpanel/news.php'>[AGGIUNGI NEWS]</a></p></li><li><p id='formHeader' style='margin-top:0px;'><a href='adminpanel/user.php'>[AGGIUNGI UTENTE]</a></p></li>");
-                    }
+                            echo("<li><p id='formHeader' style='margin-top:0px;'><a href='adminpanel/news.php'>[AGGIUNGI NEWS]</a></p></li><li><p id='formHeader' style='margin-top:0px;'><a href='adminpanel/user.php'>[AGGIUNGI UTENTE]</a></p></li>");
+                        }
+                        echo("<li><p id='formHeader' style='margin-top:0px;'><a href='common/order.php'>[AGGIUNGI ORDINE]</a></p></li>");
+                        echo("</ul>");
                     ?>
                 </div>
             </div>

@@ -52,15 +52,17 @@ if (!isset($_SESSION['id'])) {
                     <br>
                     <br>
                     <p id='formHeader' style='font-size:18px'>Menù:</p>
-                    <ul><li><p id='formHeader' style='margin-top:0px;'><a href='../homepage.php'>[VAI ALLA HOME]</a></p></li>
+                    <ul>
+                        <li><p id='formHeader' style='margin-top:0px;'><a href='../homepage.php'>[VAI ALLA HOME]</a></p></li>
+                    </ul>
                 </div>
             </div>
             <div id="content">
-                <div id="news" style="width:100%;height: 25%;">
+                <div id="news" style="width:100%;">
                     <p id="formHeader" style="margin-left: 25px; margin-top:15px;">Aggiungi Ordine:</p>
                     <form style="margin-left: 25px; margin-top:15px;" action="../workers/worker.php" method="POST">
                         <input name="type" value="9" type="hidden"/>
-                        <?php echo'<input name="userid" value="'+$_SESSION['id']+'" type="hidden"/>'; ?>
+                        <?php $session=$_SESSION['id']; echo'<input name="userid" value=\''+$session+'\' type="hidden"/>'; ?>
                         
                         <label class="input-label" for="articolo">Articolo&nbsp;:</label>
                         <select id="articoloName" name="articolo" onchange="javascript:OnSelectionChange()"></select><br>
