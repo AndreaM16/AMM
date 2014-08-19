@@ -117,6 +117,28 @@ switch ($action)
         break;
     case 8:
         // add user
+        $name = $_POST['name'];
+        $surname = $_POST['surname'];
+        $user = $_POST['username'];
+        $pass = $_POST['password'];
+        $role = $_POST['role'];
+
+        $output = PerformQuery("INSERT INTO `users`(`name`, `picture_url`, `surname`, `username`, `pwd`, `role`) VALUES ('$name','user.png','$surname','$user','$pass','$role')");
+        if ($output) {
+            unset($_POST['name']);
+            unset($_POST['surname']);
+            unset($_POST['username']);
+            unset($_POST['password']);
+            unset($_POST['role']);
+            header('Location: ../homepage.php');
+        } else {
+            unset($_POST['name']);
+            unset($_POST['surname']);
+            unset($_POST['username']);
+            unset($_POST['password']);
+            unset($_POST['role']);
+            header("HTTP/1.0 400 Bad Request");
+        }
         break;
 }
 

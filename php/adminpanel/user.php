@@ -56,31 +56,31 @@ if (!isset($_SESSION['id'])) {
                 </div>
             </div>
             <div id="content">
-                <div id="news" style="width:100%;height: 25%;">
-                    <p id="formHeader" style="margin-left: 25px; margin-top:15px;">Aggiungi news:</p>
-                    <form action="../workers/worker.php" method="POST">
+                <div id="news" style="width:100%;">
+                    <p id="formHeader" style="margin-left: 25px; margin-top:15px;">Aggiungi utente:</p>
+                    <form style="margin-left: 25px; margin-top:15px;" action="../workers/worker.php" method="POST">
                         <input name="type" value="8" type="hidden"/>
                         
                         <label class="input-label" for="name">Name&nbsp;:</label>
-                        <input name="name" type="text" class="input-boxes" required /><br>
+                        <input name="name" type="text" class="input-boxes" required /><br><br>
                         
                         <label class="input-label" for="surname">Surname&nbsp;:</label>
-                        <input name="surname" type="text" class="input-boxes" required /><br>
+                        <input name="surname" type="text" class="input-boxes" required /><br><br>
                         
                         <label class="input-label" for="username">Username&nbsp;:</label>
-                        <input name="username" type="text" class="input-boxes" required /><br>
+                        <input name="username" type="text" class="input-boxes" required /><br><br>
                         
                         <label class="input-label" for="password">Password:&nbsp;:</label>
-                        <input name="password" type="password" class="input-boxes" required /><br>
+                        <input name="password" type="password" class="input-boxes" title="Le password devono combaciare" required onchange="form.retype.pattern = this.value;"/><br><br>
                         <label class="input-label" for="retype">Re-type Password&nbsp;:</label>
-                        <input name="retype" type="password" class="input-boxes" required /><br>
+                        <input name="retype" type="password" class="input-boxes" title="Le password devono combaciare" required onchange="form.password.pattern = this.value;"/><br><br>
                         
                         <label class="input-label" for="role">Ruolo&nbsp;:</label>
                         <select name="role">
                             <option value="0">Amministratore Delegato</option>
                             <option value="1">Dipendente</option>
                             <option value="2">Cliente</option>
-                        </select><br>
+                        </select><br><br>
                         
                         <input class="round-button" type="submit" value="Add"/>
                     </form>
