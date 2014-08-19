@@ -9,7 +9,7 @@ if (!isset($_SESSION['id'])) {
     <head>
         <meta charset="UTF-8">
         <title>Gestionale AlphaData | News</title>
-        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="../css/style.css">
     </head>
     <body>
         <div id="header">
@@ -23,7 +23,7 @@ if (!isset($_SESSION['id'])) {
                 </p>
                 <div style="margin-left:25px;margin-top:10px;">
                     <?php
-                        echo('<img src="images/'.$_SESSION['picture'].'" width="275" height="275" align="middle" /><br>');
+                        echo('<img src="../images/'.$_SESSION['picture'].'" width="275" height="275" align="middle" /><br>');
                     ?>
                     <h3>Nome: <span><i><?php echo($_SESSION['name']); ?></i></span></h3>
                     <h3>Cognome: <span><i><?php echo($_SESSION['surname']); ?></i></span></h3>
@@ -50,16 +50,21 @@ if (!isset($_SESSION['id'])) {
                     <?php 
                         if($_SESSION['is_admin'] == 1) {
                         echo("<p id='formHeader' style='font-size:18px'>Amministrazione:</p>");
-                        echo("<ul><li><p id='formHeader' style='margin-top:0px;'><a href='adminpanel/users.php'>[AGGIUNGI UTENTE]</a></p></li>");
+                        echo("<ul><li><p id='formHeader' style='margin-top:0px;'><a href='users.php'>[AGGIUNGI UTENTE]</a></p></li>");
                     }
                     ?>
                 </div>
             </div>
             <div id="content">
                 <div id="news" style="width:100%;height: 25%;">
-                    <p id="formHeader" style="margin-left: 25px; margin-top:15px;">Aggiungi utente:</p>
-                    <form action="../workers/worker.php" method="POST">
-                        
+                    <p id="formHeader" style="margin-left: 25px; margin-top:15px;">Aggiungi News:</p>
+                    <form style="margin-left: 25px; margin-top:15px;" action="../workers/worker.php" method="POST">
+                        <input name="type" value="7" type="hidden"/>
+                        <label class="input-label" for="title">Title&nbsp;:</label>
+                        <input name="title" type="text" class="input-boxes" required /><br>
+                        <label class="input-label" for="link">Link&nbsp;:</label>
+                        <input name="link" type="url" class="input-boxes" required /><br>
+                        <input class="round-button" type="submit" value="Add"/>
                     </form>
                 </div>
                 <hr>

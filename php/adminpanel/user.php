@@ -8,7 +8,7 @@ if (!isset($_SESSION['id'])) {
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Gestionale AlphaData | News</title>
+        <title>Gestionale AlphaData | Users</title>
         <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
     <body>
@@ -50,14 +50,14 @@ if (!isset($_SESSION['id'])) {
                     <?php 
                         if($_SESSION['is_admin'] == 1) {
                         echo("<p id='formHeader' style='font-size:18px'>Amministrazione:</p>");
-                        echo("<ul><li><p id='formHeader' style='margin-top:0px;'><a href='adminpanel/users.php'>[AGGIUNGI UTENTE]</a></p></li>");
+                        echo("<ul><li><p id='formHeader' style='margin-top:0px;'><a href='adminpanel/news.php'>[AGGIUNGI NEWS]</a></p></li>");
                     }
                     ?>
                 </div>
             </div>
             <div id="content">
                 <div id="news" style="width:100%;height: 25%;">
-                    <p id="formHeader" style="margin-left: 25px; margin-top:15px;">Aggiungi utente:</p>
+                    <p id="formHeader" style="margin-left: 25px; margin-top:15px;">Aggiungi news:</p>
                     <form action="../workers/worker.php" method="POST">
                         
                     </form>
