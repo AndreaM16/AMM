@@ -18,7 +18,8 @@ if(isset($_GET['type']))
                 $result = LoadItems("SELECT * FROM orders AS o, users AS u WHERE o.cliente_id=u.id");
             }
             else {
-                $result = LoadItems("SELECT * FROM orders WHERE cliente_id="+$_SESSION['id']+"");
+                $id = $_SESSION['id'];
+                $result = LoadItems("SELECT * FROM orders WHERE cliente_id=$id");
             }
             echo($result);
             break;
