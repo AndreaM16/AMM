@@ -38,14 +38,14 @@
             <ul>
                 <li>Amministratore
                     <ul>
-                        <li>username: amministratore</li>
-                        <li>passowrd: amministratore</li>
+                        <li>username: admin</li>
+                        <li>passowrd: admin</li>
                     </ul>
                 </li>
                 <li>Dipendente
                     <ul>
-                        <li>username: dipendente</li>
-                        <li>passowrd: dipendente</li>
+                        <li>username: user</li>
+                        <li>passowrd: user</li>
                     </ul>
                 </li>
             </ul>
