@@ -107,20 +107,31 @@ if (!isset($_SESSION['id'])) {
                                 var role = document.createTextNode("");
                                 switch(value.role)
                                 {
-                                    case 0:
-                                        role = document.createTextNode("Amministratore");
+                                    case "0":
+                                        role = document.createTextNode("Amministratore Delegato");
                                         break;
-                                    case 1:
+                                    case "1":
                                         role = document.createTextNode("Dipendente");
                                         break;
-                                    case 2:
+                                    case "2":
                                         role = document.createTextNode("Cliente");
                                         break;
                                     default:
                                         role = document.createTextNode("N/A");
                                         break;
                                 }
-                                var gestione = document.createTextNode("Be an admin");
+                                
+                                var resettaPwdCMD = document.createElement("a");
+                                resettaPwdCMD.href = "workers/worker.php?type=4&id="+value.id;
+                                resettaPwdCMD.appendChild(document.createTextNode("Resetta PWD"));
+                                
+                                var rendiAdminCMD = document.createElement("a");
+                                rendiAdminCMD.href = "workers/worker.php?type=5&id="+value.id;
+                                rendiAdminCMD.appendChild(document.createTextNode("Rendi Admin"));
+                                
+                                var declassaCMD = document.createElement("a");
+                                declassaCMD.href = "workers/worker.php?type=6&id="+value.id;
+                                declassaCMD.appendChild(document.createTextNode("Revoca Admin."));
                                 
                                 idCell.appendChild(id);
                                 nameCell.appendChild(name);
@@ -129,7 +140,16 @@ if (!isset($_SESSION['id'])) {
                                 pwdCell.appendChild(pwd);
                                 isAdminCell.appendChild(is_admin);
                                 roleCell.appendChild(role);
-                                gestioneCell.appendChild(gestione);
+                                gestioneCell.appendChild(resettaPwdCMD);
+                                gestioneCell.appendChild(document.createTextNode(" | "));
+                                if(value.is_admin == 1)
+                                {
+                                    gestioneCell.appendChild(declassaCMD);
+                                }
+                                else
+                                {
+                                    gestioneCell.appendChild(rendiAdminCMD);
+                                }
                             })
                     },"json");';
                 }
@@ -265,7 +285,7 @@ if (!isset($_SESSION['id'])) {
                                             <td width="100px">Username</td>
                                             <td width="100px">Password</td>
                                             <td width="125px">Platf. Admin</td>
-                                            <td width="150px">Ruolo</td>
+                                            <td width="200px">Ruolo</td>
                                             <td width="250px">Gestione</td>
                                         </tr>
                                     </thead>
