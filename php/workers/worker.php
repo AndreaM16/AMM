@@ -1,5 +1,5 @@
 <?php
-include_once 'workers/config.php';
+include_once '/php/workers/config.php';
 
 if(isset($_GET['type']))
 {
