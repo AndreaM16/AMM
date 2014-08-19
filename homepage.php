@@ -1,11 +1,8 @@
 <?php
-/*
 session_start();
-if(!isset($_SESSION['id']))
-{
-    $ip = $_SERVER['REMOTE_ADDR'];
+if (!isset($_SESSION['id'])) {
     echo("Hello!\n You are trying to access a restricted area, please go <a href='index.php'>back </a>and login.");
-}*/
+}
 ?>
 <html>
     <head>
@@ -35,13 +32,40 @@ if(!isset($_SESSION['id']))
             <div id="leftSidebar">
                 <p id="formHeader" style="margin-left: 25px; margin-top:25px;">
                     Profilo utente:<br>
-                    <a href="#">[LOGOUT]</a>
+                    <a href="login.php?logout=1">[LOGOUT]</a>
                 </p>
                 <div style="margin-left:25px;margin-top:10px;">
-                    <img src="http://www.built.com.au/library/Website%20Pic%20of%20Marco_Rossi.jpg" width="300" height="300" align="middle" /><br>
-                    <h3>Nome: <span><i>Marco</i></span></h3>
-                    <h3>Cognome: <span><i>Rossi</i></span></h3>
-                    <h3>Ruolo: <span><i>Amministratore</i></span></h3>
+                    <?php
+                        echo('<img src="images/'.$_SESSION['picture'].'" width="275" height="275" align="middle" /><br>');
+                    ?>
+                    <h3>Nome: <span><i><?php echo($_SESSION['name']); ?></i></span></h3>
+                    <h3>Cognome: <span><i><?php echo($_SESSION['surname']); ?></i></span></h3>
+                    <h3>Ruolo: 
+                        <span><i>
+                        <?php 
+                            switch ($_SESSION['name']) 
+                            {
+                                case 0:
+                                    echo("Amministratore");
+                                    break;
+                                case 1:
+                                    echo("Dipendente");
+                                    break;
+                                case 2:
+                                    echo("Cliente");
+                                    break;
+                            } 
+                        ?>
+                    </i></span>
+                    </h3>
+                    <br>
+                    <br>
+                    <?php 
+                    if($_SESSION['is_admin'] == 1) {
+                        echo("<p id='formHeader' style='font-size:18px'>Amministrazione:</p>");
+                        echo("<ul><li><p id='formHeader' style='margin-top:0px;'><a href='news.php'>[AGGIUNGI NEWS]</a></p></li><li><p id='formHeader' style='margin-top:0px;'><a href='users.php'>[AGGIUNGI UTENTE]</a></p></li>");
+                    }
+                    ?>
                 </div>
             </div>
             <div id="content">

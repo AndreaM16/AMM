@@ -4,6 +4,12 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<?php
+session_start();
+if (isset($_SESSION['id'])) {
+    header("Location: homepage.php");
+}
+?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -32,7 +38,7 @@ and open the template in the editor.
             </div>
             <div style="width:50%; height: 100px; float:left"></div>
             <div style="width:25%; height: 100px; float:left">
-                <p id="footerText">Giancarlo Lelli - Matricola: 47792</p>
+                <p id="footeGiancarlo Lelli - Matricola: 47792</p>
             </div>
         </div>
     </body>

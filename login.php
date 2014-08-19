@@ -4,6 +4,13 @@ $passwordDB = "anatra176";
 $host = "localhost";
 $db_name = "amm14_lelliGiancarlo";
 
+if(isset($_GET['logout']))
+{
+    session_start();
+    session_destroy();
+    header("Location: index.php");
+}
+
 if (isset($_POST['username']) and isset($_POST['pass']))
 {
     $username = $_POST['username'];
@@ -30,7 +37,16 @@ if (isset($_POST['username']) and isset($_POST['pass']))
     {
         $data = mysqli_fetch_row($result);
         session_start();
+        
+        // Saving user info
         $_SESSION['id'] = $data[0];
+        $_SESSION['name'] = $data[1];
+        $_SESSION['picture'] = $data[2];
+        $_SESSION['surname'] = $data[3];
+        $_SESSION['username'] = $data[4];
+        $_SESSION['is_admin'] = $data[6];
+        $_SESSION['role'] = $data[7];
+        
         session_write_close();
         header("Location: homepage.php"); 
     }
