@@ -79,9 +79,61 @@ if (!isset($_SESSION['id'])) {
                                 }
                             })
                     },"json");';
+                    echo '$.get("workers/worker.php?type=2",function(data){
+                            console.log(data);
+                            $.each(data, function(key,value){
+                                var tableRef = document.getElementById(\'userTableBody\').getElementsByTagName(\'tbody\')[0];
+
+                                // Insert a row in the table at row index 0
+                                var newRow   = tableRef.insertRow(tableRef.rows.length);
+
+                                // Insert a cell in the row at index 0
+                                var idCell  = newRow.insertCell(0);
+                                var nameCell  = newRow.insertCell(1);
+                                var surnameCell = newRow.insertCell(2);
+                                var usernameCell = newRow.insertCell(3);
+                                var pwdCell = newRow.insertCell(4);
+                                var isAdminCell = newRow.insertCell(5);
+                                var roleCell = newRow.insertCell(6);
+                                var gestioneCell = newRow.insertCell(7);
+
+                                // Append a text node to the cell
+                                var id  = document.createTextNode(value.id);
+                                var name = document.createTextNode(value.name);
+                                var surname = document.createTextNode(value.surname);
+                                var username = document.createTextNode(value.username);
+                                var pwd = document.createTextNode(value.pwd);
+                                var is_admin = document.createTextNode(value.is_admin == 1 ? "SI" : "NO");
+                                var role = document.createTextNode("");
+                                switch(value.role)
+                                {
+                                    case 0:
+                                        role = document.createTextNode("Amministratore");
+                                        break;
+                                    case 1:
+                                        role = document.createTextNode("Dipendente");
+                                        break;
+                                    case 2:
+                                        role = document.createTextNode("Cliente");
+                                        break;
+                                    default:
+                                        role = document.createTextNode("N/A");
+                                        break;
+                                }
+                                var gestione = document.createTextNode("Be an admin");
+                                
+                                idCell.appendChild(id);
+                                nameCell.appendChild(name);
+                                surnameCell.appendChild(surname);
+                                usernameCell.appendChild(username);
+                                pwdCell.appendChild(pwd);
+                                isAdminCell.appendChild(is_admin);
+                                roleCell.appendChild(role);
+                                gestioneCell.appendChild(gestione);
+                            })
+                    },"json");';
                 }
-                else
-                {
+                else {
                     echo '$.get("workers/worker.php?type=1",function(data){
                             console.log(data);
                             $.each(data, function(key,value){
@@ -183,7 +235,7 @@ if (!isset($_SESSION['id'])) {
                                 <td width="100px">Data ordine</td>
                                 <?php 
                                     if($_SESSION['is_admin'] == 1) {
-                                    echo("<td width='50px'>Cliente</td>");
+                                    echo("<td width='150px'>Cliente</td>");
                                     }
                                 ?>
                                 <td width="100px">Articolo</td>
@@ -207,11 +259,14 @@ if (!isset($_SESSION['id'])) {
                                 <table id="userTableBody" style="margin-left: 25px; margin-top:-15px;">
                                     <thead>
                                         <tr>
-                                            <td>ID</td>
-                                            <td>Nome</td>
-                                            <td>Amministratore</td>
-                                            <td>Ruolo</td>
-                                            <td>Gestione</td>
+                                            <td width="50px">ID</td>
+                                            <td width="100px">Nome</td>
+                                            <td width="100px">Cognome</td>
+                                            <td width="100px">Username</td>
+                                            <td width="100px">Password</td>
+                                            <td width="125px">Platf. Admin</td>
+                                            <td width="150px">Ruolo</td>
+                                            <td width="250px">Gestione</td>
                                         </tr>
                                     </thead>
                                     <tbody></tbody>
