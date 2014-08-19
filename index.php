@@ -7,7 +7,7 @@
     <body>
         <h1>Accesso al progetto</h1>
         <p>
-            <a href="php/">Login</a>
+            <a href="http://spano.sc.unica.it/amm2014/lelliGiancarlo/php/index.php">Login</a>
         </p>
         <h3>Descrizione</h3>
         <p>
