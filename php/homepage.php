@@ -98,7 +98,7 @@ if (!isset($_SESSION['id'])) {
                     <h3>Ruolo: 
                         <span><i>
                         <?php 
-                            switch ($_SESSION['name']) 
+                            switch ($_SESSION['role']) 
                             {
                                 case 0:
                                     echo("Amministratore");
@@ -159,22 +159,24 @@ if (!isset($_SESSION['id'])) {
                         <tbody></tbody>
                     </table>
                 </div>
-                <hr>
-                <div id="users" style="width:100%; height: 25%;">
-                    <p id="formHeader" style="margin-left: 25px; margin-top:15px;">Utenti</p>
-                    <table id="userTableBody" style="margin-left: 25px; margin-top:-15px;">
-                        <thead>
-                            <tr>
-                                <td>ID</td>
-                                <td>Nome</td>
-                                <td>Amministratore</td>
-                                <td>Ruolo</td>
-                                <td>Gestione</td>
-                            </tr>
-                        </thead>
-                        <tbody></tbody>
-                    </table>
-                </div>
+                <?php
+                if($_SESSION['is_admin'] == 1) {
+                    echo '<hr>
+                            <div id="users" style="width:100%; height: 25%;">
+                                <p id="formHeader" style="margin-left: 25px; margin-top:15px;">Utenti</p>
+                                <table id="userTableBody" style="margin-left: 25px; margin-top:-15px;">
+                                    <thead>
+                                        <tr>
+                                            <td>ID</td>
+                                            <td>Nome</td>
+                                            <td>Amministratore</td>
+                                            <td>Ruolo</td>
+                                            <td>Gestione</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>';}?>
             </div>
             <div class="footer">
                 <div style="width:25%; height: 100px; float:left">
