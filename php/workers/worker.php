@@ -165,7 +165,7 @@ switch ($action)
         break;
     case 10:
         header('Content-Type: application/json');
-        $result = LoadItems("SELECT * FROM products");
+        $result = LoadItems("SELECT * FROM product");
         unset($_GET['type']);
         echo($result);
         break;

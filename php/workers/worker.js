@@ -188,6 +188,11 @@ function LoadArticoli() {
             var opt = document.createElement('option');
             opt.value = value.name;
             opt.innerHTML = value.name;
+            
+            var att=document.createAttribute("prezzoUnitario");
+            att.value=value.punitario
+            opt.setAttributeNode(att);
+            
             host.appendChild(opt);
         });
     });
