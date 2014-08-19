@@ -1,8 +1,40 @@
 <?php
+include_once 'workers/config.php';
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+if(isset($_GET['type']))
+{
+    $action = $_GET['type'];
+    switch ($action)
+    {
+        case 0:
+            header('Content-Type: application/json');
+            $result = LoadNews();
+            echo($result);
+            break;
+    }
+}
+else
+{
+    header("HTTP/1.0 400 Bad Request");
+}
 
+function LoadNews()
+{
+    // Create connection
+    $connection=mysqli_connect($host,$usernameDB,$passwordDB);
+    if (!$connection){
+        die("Database Connection Failed\n" . mysql_error());
+    }
+    
+    $selecting = mysqli_select_db($connection,$db_name);
+    if (!$selecting){
+        die("Database Selection Failed\n" . mysql_error());
+    }
+
+    $query = "SELECT * FROM news";
+    $result = mysqli_query($connection,$query) or die(mysql_error());
+    mysqli_close($connection);
+    $newsArray = mysqli_fetch_array($result);
+    $json = json_encode($newsArray);
+    return $json;
+}

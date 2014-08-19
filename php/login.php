@@ -1,8 +1,5 @@
 <?php
-$usernameDB = "lelliGiancarlo";
-$passwordDB = "anatra176";
-$host = "localhost";
-$db_name = "amm14_lelliGiancarlo";
+include_once 'workers/config.php';
 
 if(isset($_GET['logout']))
 {
@@ -28,7 +25,6 @@ if (isset($_POST['username']) and isset($_POST['pass']))
     }
 
     $query = "SELECT * FROM users WHERE username='$username' and pwd='$password'";
-    echo($query);
     $result = mysqli_query($connection,$query) or die(mysql_error());
     $count = mysqli_num_rows($result);
     mysqli_close($connection);
