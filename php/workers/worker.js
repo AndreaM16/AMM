@@ -176,22 +176,3 @@ function LoadUsers() {
         })
     },"json");
 }
-
-function LoadArticoli() {
-    $.get("workers/worker.php?type=10", function(data) {
-        console.log(data);
-    },"json");
-}
-
-function OnSelectionChange() {
-    var el = document.getElementById("articoloName");
-    var unitario = el.options[el.selectedIndex].prezzoUnitario;
-    document.getElementById("priceValue")[0].innerHTML = unitario;
-    document.getElementById("qntValue")[0].innerHTML = 1;
-}
-
-function OnQuantityChange() {
-    var unitario = document.getElementById("priceValue")[0].innerHTML;
-    var quantita = document.getElementById("qntValue")[0].innerHTML;
-    document.getElementById("totValue")[0].innerHTML = unitario * quantita;
-}

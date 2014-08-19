@@ -13,7 +13,27 @@ if (!isset($_SESSION['id'])) {
         <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.js"></script>
         <script type="text/javascript" src="../workers/worker.js"></script>
         <script type="text/javascript">
-            LoadArticoli().call(this);
+            $.get("../workers/worker.php?type=10", function(data) {
+                $.each(data,function(key,value){
+                    $('#articoloName').append("<option value='"+value.name+"' prezzoUnitario='"+value.punitario+"'>"+value.name+"</option>");
+                });
+            },"json");
+
+            function OnSelectionChange() {
+                var el = document.getElementById("articoloName");
+                var unitario = el.options[el.selectedIndex].getAttribute("prezzounitario");
+                document.getElementById("priceValue").value = unitario;
+                document.getElementById("qntValue").value = 1;
+                OnQuantityChange().call();
+            }
+
+            function OnQuantityChange() {
+                var el = document.getElementById("articoloName");
+                var unitario = el.options[el.selectedIndex].getAttribute("prezzounitario");
+                var quantita = document.getElementById("qntValue").value;
+                document.getElementById("totValue").value = unitario * quantita;
+            }
+
         </script>
     </head>
     <body>
@@ -65,7 +85,7 @@ if (!isset($_SESSION['id'])) {
                         <input name="type" value="9" type="hidden"/>
                         
                         <label class="input-label" for="articolo">Articolo&nbsp;:</label>
-                        <select id="articoloName" name="articolo" onchange="javascript:OnSelectionChange()"></select><br>
+                        <select class="input-boxes" id="articoloName" name="articolo" onchange="javascript:OnSelectionChange()"></select><br>
                         
                         <label class="input-label" for="price">Prezzo unitario&nbsp;:</label>
                         <input id="priceValue" name="price" type="number" readonly class="input-boxes" required /><br>
@@ -73,7 +93,7 @@ if (!isset($_SESSION['id'])) {
                         <label class="input-label" for="qnt">Quantità&nbsp;:</label>
                         <input id="qntValue" name="qnt" type="number" class="input-boxes" required onchange="javascript:OnQuantityChange()"/><br>
                         
-                        <label class="input-label" for="tot">Totale&nbsp;:</label>
+                        <label class="input-label" for="tot">Totale&nbsp; €:</label>
                         <input id="totValue" name="tot" type="number" readonly class="input-boxes" required /><br>
                         
                         <input class="round-button" type="submit" value="Ordina"/>

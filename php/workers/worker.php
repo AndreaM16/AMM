@@ -146,19 +146,17 @@ switch ($action)
         // add ordine
         $articolo = $_POST['articolo'];
         $totale = $_POST['tot'];
-        $cliente_id = $_POST['userid'];
+        $cliente_id = $_SESSION['id'];
         $output = PerformQuery("INSERT INTO `orders`(`articolo`, `totale`, `cliente_id`, `status`, `order_date`) VALUES ('$articolo','$totale','$cliente_id',0,NOW())");
         
         if ($output) {
             unset($_POST['articolo']);
             unset($_POST['tot']);
-            unset($_POST['userid']);
             unset($_POST['type']);
             header('Location: ../homepage.php');
         } else {
             unset($_POST['articolo']);
             unset($_POST['tot']);
-            unset($_POST['userid']);
             unset($_POST['type']);
             header("HTTP/1.0 400 Bad Request");
         }
