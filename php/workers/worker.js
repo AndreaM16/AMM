@@ -1,5 +1,4 @@
-function LoadNews()
-{
+function LoadNews() {
     $.get("workers/worker.php?type=0", function(data) {
         $.each(data, function(key,value){
             var tableRef = document.getElementById('newsTableBody').getElementsByTagName('tbody')[0];
@@ -27,8 +26,7 @@ function LoadNews()
     }, "json");
 }
 
-function LoadAdminOrders()
-{
+function LoadAdminOrders() {
     $.get("workers/worker.php?type=1",function(data){
         console.log(data);
         $.each(data, function(key,value){
@@ -71,8 +69,7 @@ function LoadAdminOrders()
     },"json");
 }
 
-function LoadMyOrders()
-{
+function LoadMyOrders() {
     $.get("workers/worker.php?type=1",function(data){
         console.log(data);
         $.each(data, function(key,value){
@@ -104,8 +101,7 @@ function LoadMyOrders()
     },"json");
 }
 
-function LoadUsers()
-{
+function LoadUsers() {
     $.get("workers/worker.php?type=2",function(data){
         console.log(data);
         $.each(data, function(key,value){
@@ -183,20 +179,8 @@ function LoadUsers()
 
 function LoadArticoli() {
     $.get("workers/worker.php?type=10", function(data) {
-        $.each(data, function(key,value) {
-            console.log(value);
-            var host = document.getElementById('articoloName')[0];
-            var opt = document.createElement("option");
-            opt.value = value.name;
-            opt.innerHTML = value.name;
-            
-            var att=document.createAttribute("prezzoUnitario");
-            att.value=value.punitario;
-            opt.setAttributeNode(att);
-            
-            host.appendChild(opt);
-        });
-    });
+        console.log(data);
+    },"json");
 }
 
 function OnSelectionChange() {

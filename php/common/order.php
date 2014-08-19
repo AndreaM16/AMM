@@ -13,7 +13,7 @@ if (!isset($_SESSION['id'])) {
         <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.js"></script>
         <script type="text/javascript" src="../workers/worker.js"></script>
         <script type="text/javascript">
-            LoadArticoli().call(document);
+            LoadArticoli().call(this);
         </script>
     </head>
     <body>
@@ -63,7 +63,6 @@ if (!isset($_SESSION['id'])) {
                     <p id="formHeader" style="margin-left: 25px; margin-top:15px;">Aggiungi Ordine:</p>
                     <form style="margin-left: 25px; margin-top:15px;" action="../workers/worker.php" method="POST">
                         <input name="type" value="9" type="hidden"/>
-                        <?php $session=$_SESSION['id']; echo'<input name="userid" value=\''+$session+'\' type="hidden"/>'; ?>
                         
                         <label class="input-label" for="articolo">Articolo&nbsp;:</label>
                         <select id="articoloName" name="articolo" onchange="javascript:OnSelectionChange()"></select><br>
