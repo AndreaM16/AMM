@@ -130,6 +130,7 @@ switch ($action)
             unset($_POST['username']);
             unset($_POST['password']);
             unset($_POST['role']);
+            unset($_POST['type']);
             header('Location: ../homepage.php');
         } else {
             unset($_POST['name']);
@@ -137,11 +138,36 @@ switch ($action)
             unset($_POST['username']);
             unset($_POST['password']);
             unset($_POST['role']);
+            unset($_POST['type']);
             header("HTTP/1.0 400 Bad Request");
         }
         break;
     case 9:
-        // nuovo ordine
+        // add ordine
+        $articolo = $_POST['articolo'];
+        $totale = $_POST['tot'];
+        $cliente_id = $_POST['userid'];
+        $output = PerformQuery("INSERT INTO `orders`(`articolo`, `totale`, `cliente_id`, `status`, `order_date`) VALUES ('$articolo','$totale','$cliente_id',0,NOW())");
+        
+        if ($output) {
+            unset($_POST['articolo']);
+            unset($_POST['tot']);
+            unset($_POST['userid']);
+            unset($_POST['type']);
+            header('Location: ../homepage.php');
+        } else {
+            unset($_POST['articolo']);
+            unset($_POST['tot']);
+            unset($_POST['userid']);
+            unset($_POST['type']);
+            header("HTTP/1.0 400 Bad Request");
+        }
+        break;
+    case 10:
+        header('Content-Type: application/json');
+        $result = LoadItems("SELECT * FROM products");
+        unset($_GET['type']);
+        echo($result);
         break;
 }
 

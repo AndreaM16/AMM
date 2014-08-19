@@ -13,11 +13,6 @@ if (!isset($_SESSION['id'])) {
         <script type="text/javascript" src="workers/worker.js"></script>
         <script type="text/javascript">
             LoadArticoli().call(this);
-            function OnTextChange() {
-                var unitario = 0;
-                var quantità = 0;
-                //
-            }
         </script>
     </head>
     <body>
@@ -66,16 +61,15 @@ if (!isset($_SESSION['id'])) {
                     <form style="margin-left: 25px; margin-top:15px;" action="../workers/worker.php" method="POST">
                         <input name="type" value="9" type="hidden"/>
                         <?php echo'<input name="userid" value="'+$_SESSION['id']+'" type="hidden"/>'; ?>
-                        <label class="input-label" for="role">Articolo&nbsp;:</label>
-                        <select id="articoloName" name="articolo" onchange="javascript:OnTextChange()">
-                            <!--<option value="0">Amministratore Delegato</option>-->
-                        </select><br>
+                        
+                        <label class="input-label" for="articolo">Articolo&nbsp;:</label>
+                        <select id="articoloName" name="articolo" onchange="javascript:OnSelectionChange()"></select><br>
                         
                         <label class="input-label" for="price">Prezzo unitario&nbsp;:</label>
-                        <input id="priceValue" name="price" type="number" class="input-boxes" required /><br>
+                        <input id="priceValue" name="price" type="number" readonly class="input-boxes" required /><br>
                         
                         <label class="input-label" for="qnt">Quantità&nbsp;:</label>
-                        <input id="qntValue" name="qnt" type="number" class="input-boxes" required /><br>
+                        <input id="qntValue" name="qnt" type="number" class="input-boxes" required onchange="javascript:OnQuantityChange()"/><br>
                         
                         <label class="input-label" for="tot">Totale&nbsp;:</label>
                         <input id="totValue" name="tot" type="number" readonly class="input-boxes" required /><br>
