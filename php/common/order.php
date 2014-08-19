@@ -10,9 +10,10 @@ if (!isset($_SESSION['id'])) {
         <meta charset="UTF-8">
         <title>Gestionale AlphaData | Ordini</title>
         <link rel="stylesheet" type="text/css" href="../css/style.css">
-        <script type="text/javascript" src="workers/worker.js"></script>
+        <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.js"></script>
+        <script type="text/javascript" src="../workers/worker.js"></script>
         <script type="text/javascript">
-            LoadArticoli().call(this);
+            LoadArticoli().call(document);
         </script>
     </head>
     <body>

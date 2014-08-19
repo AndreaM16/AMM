@@ -184,13 +184,14 @@ function LoadUsers()
 function LoadArticoli() {
     $.get("workers/worker.php?type=10", function(data) {
         $.each(data, function(key,value) {
-            var host = document.getElementById("articoloName")[0];
-            var opt = document.createElement('option');
+            console.log(value);
+            var host = document.getElementById('articoloName')[0];
+            var opt = document.createElement("option");
             opt.value = value.name;
             opt.innerHTML = value.name;
             
             var att=document.createAttribute("prezzoUnitario");
-            att.value=value.punitario
+            att.value=value.punitario;
             opt.setAttributeNode(att);
             
             host.appendChild(opt);
