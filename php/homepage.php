@@ -79,7 +79,7 @@ if (!isset($_SESSION['id'])) {
                         <thead>
                             <tr>
                                 <td width="140px">Data</td>
-                                <td width="350px">Titolo</td>
+                                <td width="300px">Titolo</td>
                                 <td>Link</td>
                             </tr>
                         </thead>
