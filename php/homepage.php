@@ -37,7 +37,7 @@ if (!isset($_SESSION['id'])) {
                 </p>
                 <div style="margin-left:25px;margin-top:10px;">
                     <?php
-                        echo('<img src="images/'.$_SESSION['picture'].'" width="275" height="275" align="middle" /><br>');
+                        echo('<img src="images/'.$_SESSION['picture'].'" width="200" height="200" align="middle" /><br>');
                     ?>
                     <h3>Nome: <span><i><?php echo($_SESSION['name']); ?></i></span></h3>
                     <h3>Cognome: <span><i><?php echo($_SESSION['surname']); ?></i></span></h3>
