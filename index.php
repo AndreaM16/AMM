@@ -30,7 +30,6 @@
                 <li>Utilizzo di HTML e CSS</li>
                 <li>Utilizzo di PHP e MySQL</li>
                 <li>Utilizzo di Javascript e chiamate asincrono</li>
-                <li>Sorting con jQuery</li>
                 <li>Due ruoli (amministratore e dipendente)</li>
             </ol>
         </p>
