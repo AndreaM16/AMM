@@ -86,6 +86,7 @@ if (!isset($_SESSION['id'])) {
                         <tbody></tbody>
                     </table>
                 </div>
+                <br><br>
                 <hr>
                 <div id="orders" style="width:100%;">
                     <p id="formHeader" style="margin-left: 25px; margin-top:15px;">Ordini</p>
