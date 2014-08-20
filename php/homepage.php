@@ -12,6 +12,7 @@ if (!isset($_SESSION['id'])) {
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.js"></script>
         <script type="text/javascript" src="workers/worker.js"></script>
+        <script type="text/javascript" src="js/jquery.tablesorter.js"></script>
         <script type="text/javascript">
             LoadNews.call(this);
             <?php
@@ -21,6 +22,7 @@ if (!isset($_SESSION['id'])) {
                 }
                 else {
                     echo 'LoadMyOrders.call(this);';
+                    
                 }
             ?>
         </script>
@@ -89,7 +91,7 @@ if (!isset($_SESSION['id'])) {
                 <hr>
                 <div id="orders" style="width:100%;">
                     <p id="formHeader" style="margin-left: 25px; margin-top:15px;">Ordini</p>
-                    <table id="orderTableBody" style="margin-left: 25px; margin-top:-15px;">
+                    <table id="orderTableBody" class="tablesorter" style="margin-left: 25px; margin-top:-15px;">
                         <thead>
                             <tr>
                                 <td width="50px">#</td>

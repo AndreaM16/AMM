@@ -28,7 +28,6 @@ function LoadNews() {
 
 function LoadAdminOrders() {
     $.get("workers/worker.php?type=1",function(data){
-        console.log(data);
         $.each(data, function(key,value){
             var tableRef = document.getElementById('orderTableBody').getElementsByTagName('tbody')[0];
 
@@ -65,13 +64,13 @@ function LoadAdminOrders() {
             if(value.status == 0){
                 gestioneCell.appendChild(gestione);
             }
+            $("#orderTableBody").tablesorter();
         })
     },"json");
 }
 
 function LoadMyOrders() {
     $.get("workers/worker.php?type=1",function(data){
-        console.log(data);
         $.each(data, function(key,value){
             var tableRef = document.getElementById('orderTableBody').getElementsByTagName('tbody')[0];
 
@@ -97,13 +96,13 @@ function LoadMyOrders() {
             articoloCell.appendChild(articolo);
             totaleCell.appendChild(totale);
             statusCell.appendChild(status);
+            $("#orderTableBody").tablesorter();
         })
     },"json");
 }
 
 function LoadUsers() {
     $.get("workers/worker.php?type=2",function(data){
-        console.log(data);
         $.each(data, function(key,value){
             var tableRef = document.getElementById('userTableBody').getElementsByTagName('tbody')[0];
 
