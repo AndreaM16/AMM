@@ -66,6 +66,9 @@
     font-family: 'Segoe WP Semibold', Verdana;
     margin-top:0px;
 }
+thead > tr > td {
+    font-weight: bold;
+}
 p > a {
     font-size: 15px; 
     font-family: 'Segoe WP Semibold', Verdana;
