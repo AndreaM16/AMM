@@ -26,12 +26,6 @@ if (!isset($_SESSION['id'])) {
                 }
             ?>
         </script>
-        <script type="text/javascript">
-            $(document).ready(function() 
-            { 
-                
-            }); 
-        </script>
     </head>
     <body>
         <div id="header">

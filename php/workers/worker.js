@@ -64,8 +64,8 @@ function LoadAdminOrders() {
             if(value.status == 0){
                 gestioneCell.appendChild(gestione);
             }
-            $("#orderTableBody").tablesorter(); 
         })
+        $("#orderTableBody").tablesorter(); 
     },"json");
 }
 
@@ -96,8 +96,8 @@ function LoadMyOrders() {
             articoloCell.appendChild(articolo);
             totaleCell.appendChild(totale);
             statusCell.appendChild(status);
-            $("#orderTableBody").tablesorter(); 
         })
+        $("#orderTableBody").tablesorter(); 
     },"json");
 }
 
