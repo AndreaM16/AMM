@@ -19,7 +19,7 @@ if (!isset($_SESSION['id'])) {
             <div id="leftSidebar">
                 <p id="formHeader" style="margin-left: 25px; margin-top:25px;">
                     Profilo utente:<br>
-                    <a href="login.php?logout=1">[LOGOUT]</a>
+                    <a href="../login.php?logout=1">[LOGOUT]</a>
                 </p>
                 <div style="margin-left:25px;margin-top:10px;">
                     <?php
