@@ -15,7 +15,7 @@
             I dipendenti possono:
             <ul>
                 <li>Visualizzare le news dell'azienda</li>
-                <li>Ordinare nuovi prodotti e possono annullare ordini se non pagati ma non aggiungerne di nuovi.</li>
+                <li>Ordinare nuovi prodotti.</li>
             </ul>
             Gli amministratori possono:
             <ul>
