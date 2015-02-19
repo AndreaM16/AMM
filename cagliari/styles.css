@@ -1,0 +1,26 @@
+html,body{margin:0;padding:0}
+body{font: 76% arial,sans-serif;text-align:center}
+p{margin:0 10px 10px}
+a{padding:5px; text-decoration:none; color:#000000;}
+div#header{background-color: red;}
+div#header h1{height:60px;line-height:65px;margin:0;padding-left:10px;text-align:center; color:blue; font-size: 70px;}
+div#container{text-align:left; border: 2px solid grey;}
+div#content p{line-height:1.4}
+div#navigation{background:#F6F0E0; border: 1px solid black;}
+div#navigation ul{margin:15px 0; padding:0; list-style-type:none;}
+div#navigation li{margin-bottom:5px;}
+div#extra{background:#CCC8B3; border: 1px solid black;}
+div#footer{background:red;}
+div#footer p{margin:0;padding:5px 10px; color:black; }
+div#container{width:1200px; margin:0 auto; border: 1px solid black; min-height: 400px;}
+div#wrapper{float:left;width:100% ;border: 0px solid black;}
+div#content{margin-left: 0px; border: 0px solid black; min-height: 400px;}
+div#navigation{float:right;width:150px;margin-left:-550px; border: 0px solid grey;}
+div#extra{float:left;width:150px;margin-left:-700px}
+div#footer{clear:left;width:100% ; border: 0px solid grey;}
+div#left{width:500px; min-height:300px; border: 1px solid blue; float: left;}
+div#left p{font-size: 25px; }
+div#right{width:500px; min-height:300px; border: 1px solid red; float: right;}
+div#right p{font-size: 25px; }
+p{font-size: 25px; }
+h2 {font-size: 50px; margin-top: 50px;}
