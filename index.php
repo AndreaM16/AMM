@@ -7,7 +7,7 @@
     <body>
         <h1>Link al progetto</h1>
         <p>
-            <a href="http://spano.sc.unica.it/amm2014/meddaAndrea/cagliari/Files">Login</a>
+            <a href="http://spano.sc.unica.it/amm2014/meddaAndrea/Files">Login</a>
         </p>
         <p>
         <h3>Descrizione</h3>
