@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 18, 2015 alle 20:43
+-- Generation Time: Feb 20, 2015 alle 10:52
 -- Versione del server: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `news` (
   `Data` date NOT NULL,
   `Ora` time NOT NULL,
   `Codice_Utente` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dump dei dati per la tabella `news`
@@ -86,9 +86,9 @@ CREATE TABLE IF NOT EXISTS `prodotto` (
 --
 
 INSERT INTO `prodotto` (`Codice`, `Nome`, `Descrizione`, `Prezzo`, `Immagine`) VALUES
-(1, 'Maglia Home', 'Maglia ufficiale manica corta, vestibilità slim fit.\r\nComposizione: 90% poliestere 10% elastam.\r\n\r\n\r\nTessuto a maglia leggero ed elastico con mano pesca cotoniera.\r\nMaglia girocollo con finto scollo a V, loghi Kappa stampati ad alta densità.', 60, 'home.jpg'),
-(2, 'Maglia Away', 'Maglia ufficiale manica corta, vestibilità slim fit.\r\nComposizione: 90% poliestere 10% elastam.\r\nTessuto a maglia leggero ed elastico con mano pesca cotoniera.\r\n\r\nMaglia girocollo con finto scollo a V, loghi Kappa stampati ad alta densità.', 60, 'away.jpg'),
-(3, 'Maglia portiere', ' Maglia ufficiale manica corta, vestibilitÃ  slim fit.\r\nComposizione:90% poliestere 10% elastam.\r\nTessuto a maglia leggero ed elastico con mano pesca cotoniera.\r\nMaglia girocollo con finto scollo a V, loghi Kappa s', 50, 'goal.jpg');
+(1, 'Maglia Home', 'Maglia ufficiale manica corta, vestibilità slim fit.\r\nComposizione: 90% poliestere 10% elastam.\r\n\r\n\r\nTessuto a maglia leggero ed elastico con mano pesca cotoniera.\r\nMaglia girocollo con finto scollo a V, loghi Kappa stampati ad alta densità.', 60, 'http://store.cagliaricalcio.com/img_store/prodotti/ametheoxerwaradbueel.1045.1263.224.263.jpg'),
+(2, 'Maglia Away', 'Maglia ufficiale manica corta, vestibilità slim fit.\r\nComposizione: 90% poliestere 10% elastam.\r\nTessuto a maglia leggero ed elastico con mano pesca cotoniera.\r\n\r\nMaglia girocollo con finto scollo a V, loghi Kappa stampati ad alta densità.', 60, 'http://store.cagliaricalcio.com/img_store/prodotti/ciardureptarateridge.1045.1263.224.263.jpg'),
+(3, 'Maglia portiere', ' Maglia ufficiale manica corta, vestibilitÃ  slim fit.\r\nComposizione:90% poliestere 10% elastam.\r\nTessuto a maglia leggero ed elastico con mano pesca cotoniera.\r\nMaglia girocollo con finto scollo a V, loghi Kappa s', 50, 'http://store.cagliaricalcio.com/img_store/prodotti/nitopensfulaguscapec.1045.1263.224.263.jpg');
 
 -- --------------------------------------------------------
 
@@ -153,7 +153,7 @@ ALTER TABLE `utente`
 -- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
-MODIFY `Codice` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+MODIFY `Codice` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `ordine`
 --
