@@ -66,7 +66,7 @@ $q_news="SELECT * from news";
       $prezzo=$q_news['Prezzo'];
       $foto=$q_news['Immagine'];
   
-   print("<p><a href=\"eliminaprodotto.php?codice=$codice\">$titolo - $prezzo €</a></p>") ; 
+   print("<p><a href=\"eliminaprodotto.php?codice=$codice\">$titolo - $prezzo â‚¬</a></p>") ; 
    print("<img height=150 width=180 src='$foto'>Codice prodotto:$codice - $testo <br><br><br><hr><br>");  
   }
         print("<br>");     
@@ -129,7 +129,7 @@ $q_news="SELECT * from news";
       $prezzo=$q_news['Prezzo'];
       $foto=$q_news['Immagine'];
   
-   print("<p><a href=\"compra.php?codice=$codice\">$titolo - $prezzo €</a></p>") ; 
+   print("<p><a href=\"compra.php?codice=$codice\">$titolo - $prezzo â‚¬</a></p>") ; 
    print("<img height=150 width=180 src='$foto'>  $testo <br><br><br><hr><br>");  
   }
         print("<br>");     
